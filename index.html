@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENGARUH MEDIA SOSIAL BAGI GEN Z</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: bgShift 10s ease-in-out infinite alternate;
+        }
+        @keyframes bgShift {
+            0% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+            100% { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); }
+        }
+        .presentation {
+            width: 90%;
+            max-width: 900px;
+            height: 85%;
+            position: relative;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            border: 5px solid #fff;
+            animation: pulse 5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .slide {
+            display: none;
+            padding: 40px;
+            height: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            margin: 10px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #fff;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes textGlow {
+            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+            100% { text-shadow: 0 0 20px #ffd700, 2px 2px 4px rgba(0,0,0,0.5); }
+        }
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            animation: slideInLeft 1s ease-out;
+        }
+        @keyframes slideInLeft {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        p, ul {
+            font-size: 1.3em;
+            line-height: 1.7;
+            color: #fff;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        ul {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 700px;
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 5px solid #ffd700;
+            animation: listItem 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        ul li:nth-child(1) { animation-delay: 0.2s; }
+        ul li:nth-child(2) { animation-delay: 0.4s; }
+        ul li:nth-child(3) { animation-delay: 0.6s; }
+        ul li:nth-child(4) { animation-delay: 0.8s; }
+        @keyframes listItem {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: zoomIn 1s ease-out;
+        }
+        @keyframes zoomIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 15px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        .group-info {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #ffd700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeIn 2s ease-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 6s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        audio {
+            display: none;
+        }
+        .sound-toggle {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="presentation">
+        <button class="sound-toggle" id="soundToggle">🔊</button>
+        <div class="group-info">
+            <p>Presentasi Kelompok: Tim Inovasi Digital</p>
+            <p>Anggota: [Nama Anggota 1], [Nama Anggota 2], dll.</p>
+        </div>
+        <div id="slide1" class="slide active">
+            <h1>PENGARUH MEDIA SOSIAL BAGI GEN Z</h1>
+            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gen Z menggunakan media sosial">
+            <p>Presentasi ini membahas dampak positif dan negatif media sosial terhadap Generasi Z (lahir 1997-2012).</p>
+        </div>
+        <div id="slide2" class="slide">
+            <h2>Pengantar</h2>
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Remaja menggunakan smartphone">
+            <p>Generasi Z tumbuh dengan teknologi digital. Media sosial seperti Instagram, TikTok, dan Twitter memainkan peran besar dalam kehidupan sehari-hari mereka.</p>
+            <ul>
+                <li>Lebih dari 90% Gen Z aktif di media sosial (sumber: Pew Research Center, 2023).</li>
+                <li>Media sosial memfasilitasi komunikasi global dan akses informasi cepat.</li>
+            </ul>
+        </div>
+        <div id="slide3" class="slide">
+            <h2>Pengaruh Positif</h2>
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Orang-orang terhubung melalui media sosial">
+            <ul>
+                <li><strong>Koneksi Sosial:</strong> Memungkinkan pertemanan dan jaringan lintas batas.</li>
+                <li><strong>Akses Informasi:</strong> Edukasi, berita, dan kesadaran sosial (misalnya, gerakan #MeToo atau Black Lives Matter).</li>
+                <li><strong>Peluang Karir:</strong> Influencer, content creator, dan bisnis online.</li>
+                <li><strong>Kreativitas:</strong> Platform untuk berbagi seni, musik, dan ide.</li>
+            </ul>
+        </div>
+        <div id="slide4" class="slide">
+            <h2>Pengaruh Negatif</h2>
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Orang stres karena media sosial">
+            <ul>
+                <li><strong>Kesehatan Mental:</strong> Peningkatan risiko depresi, kecemasan, dan gangguan tidur akibat perbandingan sosial (sumber: Journal of Adolescent Health, 2022).</li>
+                <li><strong>Cyberbullying:</strong> Pelecehan online yang dapat menyebabkan trauma psikologis.</li>
+                <li><strong>Kecanduan:</strong> Waktu layar berlebih mengurangi produktivitas dan interaksi tatap muka.</li>
+                <li><strong>Privasi dan Keamanan:</strong> Risiko data bocor, manipulasi informasi, dan eksploitasi.</li>
+            </ul>
+        </div>
+        <div id="slide5" class="slide">
+            <h2>Kesimpulan</h2>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gen Z belajar dari pengalaman">
+            <p>Media sosial memiliki dampak ganda bagi Gen Z: memperkaya kehidupan namun juga menimbulkan risiko. Penggunaan yang bijak, seperti batasan waktu dan verifikasi informasi, dapat memaksimalkan manfaat.</p>
+            <p>Terima kasih atas perhatiannya!</p>
+        </div>
+        <div class="nav">
+            <button id="prev">Sebelumnya</button>
+            <button id="next">Selanjutnya</button>
+        </div>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"> <!-- Ganti dengan URL musik latar yang sesuai, atau hapus jika tidak diinginkan -->
+    </audio>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+        const bgMusic = document.getElementById('bgMusic');
+        const soundToggle = document.getElementById('soundToggle');
+        let isPlaying = false;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            document.getElementById(`slide${n}`).classList.add('active');
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Partikel animasi
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 10 + 5 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Kontrol musik
+        soundToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                soundToggle.textContent = '🔇';
+            } else {
+                bgMusic.play();
+                soundToggle.textContent = '🔊';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            } else if (e.key === 'ArrowLeft' && currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENGARUH MEDIA SOSIAL BAGI GEN Z</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: bgShift 10s ease-in-out infinite alternate;
+        }
+        @keyframes bgShift {
+            0% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+            100% { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); }
+        }
+        .presentation {
+            width: 90%;
+            max-width: 900px;
+            height: 85%;
+            position: relative;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            border: 5px solid #fff;
+            animation: pulse 5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .slide {
+            display: none;
+            padding: 40px;
+            height: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            margin: 10px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #fff;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes textGlow {
+            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+            100% { text-shadow: 0 0 20px #ffd700, 2px 2px 4px rgba(0,0,0,0.5); }
+        }
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            animation: slideInLeft 1s ease-out;
+        }
+        @keyframes slideInLeft {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        p, ul {
+            font-size: 1.3em;
+            line-height: 1.7;
+            color: #fff;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        ul {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 700px;
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 5px solid #ffd700;
+            animation: listItem 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        ul li:nth-child(1) { animation-delay: 0.2s; }
+        ul li:nth-child(2) { animation-delay: 0.4s; }
+        ul li:nth-child(3) { animation-delay: 0.6s; }
+        ul li:nth-child(4) { animation-delay: 0.8s; }
+        @keyframes listItem {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: zoomIn 1s ease-out;
+        }
+        @keyframes zoomIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 15px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        .group-info {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #ffd700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeIn 2s ease-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 6s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        audio {
+            display: none;
+        }
+        .sound-toggle {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="presentation">
+        <button class="sound-toggle" id="soundToggle">🔊</button>
+        <div class="group-info">
+            <p>Presentasi Kelompok: Tim Inovasi Digital</p>
+            <p>Anggota: [Nama Anggota 1], [Nama Anggota 2], dll.</p>
+        </div>
+        <div id="slide1" class="slide active">
+            <h1>PENGARUH MEDIA SOSIAL BAGI GEN Z</h1>
+            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gen Z menggunakan media sosial">
+            <p>Presentasi ini membahas dampak positif dan negatif media sosial terhadap Generasi Z (lahir 1997-2012).</p>
+        </div>
+        <div id="slide2" class="slide">
+            <h2>Pengantar</h2>
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Remaja menggunakan smartphone">
+            <p>Generasi Z tumbuh dengan teknologi digital. Media sosial seperti Instagram, TikTok, dan Twitter memainkan peran besar dalam kehidupan sehari-hari mereka.</p>
+            <ul>
+                <li>Lebih dari 90% Gen Z aktif di media sosial (sumber: Pew Research Center, 2023).</li>
+                <li>Media sosial memfasilitasi komunikasi global dan akses informasi cepat.</li>
+            </ul>
+        </div>
+        <div id="slide3" class="slide">
+            <h2>Pengaruh Positif</h2>
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Orang-orang terhubung melalui media sosial">
+            <ul>
+                <li><strong>Koneksi Sosial:</strong> Memungkinkan pertemanan dan jaringan lintas batas.</li>
+                <li><strong>Akses Informasi:</strong> Edukasi, berita, dan kesadaran sosial (misalnya, gerakan #MeToo atau Black Lives Matter).</li>
+                <li><strong>Peluang Karir:</strong> Influencer, content creator, dan bisnis online.</li>
+                <li><strong>Kreativitas:</strong> Platform untuk berbagi seni, musik, dan ide.</li>
+            </ul>
+        </div>
+        <div id="slide4" class="slide">
+            <h2>Pengaruh Negatif</h2>
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Orang stres karena media sosial">
+            <ul>
+                <li><strong>Kesehatan Mental:</strong> Peningkatan risiko depresi, kecemasan, dan gangguan tidur akibat perbandingan sosial (sumber: Journal of Adolescent Health, 2022).</li>
+                <li><strong>Cyberbullying:</strong> Pelecehan online yang dapat menyebabkan trauma psikologis.</li>
+                <li><strong>Kecanduan:</strong> Waktu layar berlebih mengurangi produktivitas dan interaksi tatap muka.</li>
+                <li><strong>Privasi dan Keamanan:</strong> Risiko data bocor, manipulasi informasi, dan eksploitasi.</li>
+            </ul>
+        </div>
+        <div id="slide5" class="slide">
+            <h2>Kesimpulan</h2>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gen Z belajar dari pengalaman">
+            <p>Media sosial memiliki dampak ganda bagi Gen Z: memperkaya kehidupan namun juga menimbulkan risiko. Penggunaan yang bijak, seperti batasan waktu dan verifikasi informasi, dapat memaksimalkan manfaat.</p>
+            <p>Terima kasih atas perhatiannya!</p>
+        </div>
+        <div class="nav">
+            <button id="prev">Sebelumnya</button>
+            <button id="next">Selanjutnya</button>
+        </div>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"> <!-- Ganti dengan URL musik latar yang sesuai, atau hapus jika tidak diinginkan -->
+    </audio>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+        const bgMusic = document.getElementById('bgMusic');
+        const soundToggle = document.getElementById('soundToggle');
+        let isPlaying = false;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            document.getElementById(`slide${n}`).classList.add('active');
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Partikel animasi
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 10 + 5 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Kontrol musik
+        soundToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                soundToggle.textContent = '🔇';
+            } else {
+                bgMusic.play();
+                soundToggle.textContent = '🔊';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            } else if (e.key === 'ArrowLeft' && currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+    </script>
+</body>
+</html>
